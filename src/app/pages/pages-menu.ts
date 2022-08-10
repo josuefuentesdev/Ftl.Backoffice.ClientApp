@@ -17,6 +17,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
+    title: 'Contacts',
+    link: '/pages/contacts',
+    icon: 'people-outline'
+  },
+  {
     title: 'Layout',
     icon: 'layout-outline',
     children: [
