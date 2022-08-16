@@ -11,6 +11,9 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ApiModule, BASE_PATH } from '../libs/api-client';
+import { environment } from '../environments/environment';
+
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -39,7 +42,9 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    ApiModule
   ],
+  providers: [{ provide: BASE_PATH, useValue: environment.API_BASE_PATH }],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -7,6 +7,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   ]
 })
 export class FunnelChartComponent implements AfterViewInit, OnInit {
+
   options: any = {};
   constructor() { }
 
@@ -16,7 +17,7 @@ export class FunnelChartComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     this.options = {
       title: {
-        text: 'Funnel'
+        text: 'Sales funnel'
       },
       tooltip: {
         trigger: 'item',
@@ -24,13 +25,13 @@ export class FunnelChartComponent implements AfterViewInit, OnInit {
       },
       toolbox: {
         feature: {
-          dataView: { readOnly: false },
-          restore: {},
-          saveAsImage: {}
+          restore: {
+            title : 'Restore'
+          },
         }
       },
       legend: {
-        data: ['Show', 'Click', 'Visit', 'Inquiry', 'Order']
+        data: ['Visit', 'Lead', 'Consider', 'Order']
       },
       series: [
         {
@@ -67,11 +68,10 @@ export class FunnelChartComponent implements AfterViewInit, OnInit {
             }
           },
           data: [
-            { value: 60, name: 'Visit' },
-            { value: 40, name: 'Inquiry' },
-            { value: 20, name: 'Order' },
-            { value: 80, name: 'Click' },
-            { value: 100, name: 'Show' }
+            { value: 100, name: 'Visit' },
+            { value: 60, name: 'Lead' },
+            { value: 30, name: 'Consider' },
+            { value: 10, name: 'Order' }
           ]
         }
       ]

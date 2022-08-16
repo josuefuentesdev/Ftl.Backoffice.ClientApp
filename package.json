@@ -27,7 +27,8 @@
     "docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-    "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points --tsconfig \"./src/tsconfig.app.json\""
+    "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points --tsconfig \"./src/tsconfig.app.json\"",
+    "generate-client-sdk": "mkdir -p src/libs/api-client && openapi-generator-cli generate -i http://localhost:5000/swagger/v1/swagger.json -g typescript-angular -o src/libs/api-client"
   },
   "dependencies": {
     "@angular/animations": "^12.2.16",
@@ -83,6 +84,7 @@
     "@angular/language-service": "12.1.0",
     "@compodoc/compodoc": "1.0.1",
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "@openapitools/openapi-generator-cli": "^2.5.1",
     "@types/d3-color": "1.0.5",
     "@types/jasmine": "~3.3.0",
     "@types/jasminewd2": "2.0.3",
