@@ -3,23 +3,24 @@
     <nb-card size="large">
       <nb-tabset fullWidth>
         <nb-tab tabTitle="Contact">
-          <nb-card size="medium">
-            <nb-card-header>
-              Main Contact Data
-            </nb-card-header>
             <nb-list>
               <nb-list-item *ngFor="let item of contact | keyvalue" [hidden]="!item.value">
-                <div *ngIf="item.value">
-                  <p><strong>{{ item.key }}: </strong>{{ item.value }}</p>
+                <div *ngIf="item.value" class="contact-data">
+                  <span>{{ item.key }}:</span><span>{{ item.value }}</span>
                 </div>
               </nb-list-item>
             </nb-list>
-          </nb-card>
 
 
         </nb-tab>
         <nb-tab tabTitle="Events">
-          <span>Content #2</span>
+          <nb-list>
+            <nb-list-item class="contact" *ngFor="let contactEvent of contactEvents">
+              <ngx-contact-event [contactEvent]="contactEvent">
+              </ngx-contact-event>
+              <span class="caption">{{ contactEvent.created | date: 'shortTime' }}</span>
+            </nb-list-item>
+          </nb-list>
         </nb-tab>
       </nb-tabset>
     </nb-card>

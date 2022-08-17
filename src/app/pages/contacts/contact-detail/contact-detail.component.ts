@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContactsService, GetOneContactResponseDto } from '../../../../libs/api-client';
+import { ContactEventItem, ContactEventsService, ContactsService, GetOneContactResponseDto } from '../../../../libs/api-client';
 
 @Component({
   selector: 'ngx-contact-detail',
@@ -10,10 +10,12 @@ import { ContactsService, GetOneContactResponseDto } from '../../../../libs/api-
 export class ContactDetailComponent implements OnInit {
   id: string;
   contact: GetOneContactResponseDto;
+  contactEvents: ContactEventItem[];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private contactsService: ContactsService,
+    private contactEventsService: ContactEventsService
     ) { }
 
   ngOnInit(): void {
@@ -26,6 +28,12 @@ export class ContactDetailComponent implements OnInit {
       }
     );
 
+    this.contactEventsService.getContactEvents(Number(this.id))
+    .subscribe((v) => {
+      this.contactEvents = v;
+      console.log(v);
+    }
+  );
 
 
   }

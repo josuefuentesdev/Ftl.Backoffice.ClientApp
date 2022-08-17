@@ -6,6 +6,7 @@ import { NbCardModule, NbListModule, NbRouteTabsetModule, NbTabsetModule } from 
 import { ContactsTableComponent } from './contacts-table/contacts-table.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { ContactEventComponent } from './contact-event/contact-event.component';
 
 
 
@@ -14,6 +15,7 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
     ContactsComponent,
     ContactsTableComponent,
     ContactDetailComponent,
+    ContactEventComponent,
   ],
   imports: [
     CommonModule,
