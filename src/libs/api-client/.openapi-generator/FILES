@@ -15,6 +15,8 @@ model/contactItem.ts
 model/createContactDto.ts
 model/createContactEventDto.ts
 model/createOrderDto.ts
+model/getContactsResponseDto.ts
+model/getOneContactResponseDto.ts
 model/models.ts
 model/orderItem.ts
 model/ordersStatsDto.ts

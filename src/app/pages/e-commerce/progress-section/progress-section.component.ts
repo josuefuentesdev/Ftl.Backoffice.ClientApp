@@ -63,7 +63,7 @@ export class ECommerceProgressSectionComponent implements OnDestroy {
             title: 'Minutes since last order',
             value: 0,
             activeProgress: 0,
-            description: `This week, from the maximum of 720 minutos`,
+            description: `This week, from the maximum of 720 minutes`,
           })
         }
       });

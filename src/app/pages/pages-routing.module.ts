@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
 
 const routes: Routes = [{
   path: '',
@@ -17,7 +18,16 @@ const routes: Routes = [{
     },
     {
       path: 'contacts',
-      component: ContactsComponent,
+      children: [
+        {
+          path: '',
+          component: ContactsComponent,
+        },
+        {
+          path: ':id',
+          component: ContactDetailComponent,
+        },
+      ]
     },
     {
       path: 'iot-dashboard',

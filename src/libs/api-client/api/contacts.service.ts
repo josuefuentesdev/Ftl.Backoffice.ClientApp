@@ -19,9 +19,11 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { ContactItem } from '../model/contactItem';
-// @ts-ignore
 import { CreateContactDto } from '../model/createContactDto';
+// @ts-ignore
+import { GetContactsResponseDto } from '../model/getContactsResponseDto';
+// @ts-ignore
+import { GetOneContactResponseDto } from '../model/getOneContactResponseDto';
 // @ts-ignore
 import { UpdateContactDto } from '../model/updateContactDto';
 
@@ -218,9 +220,9 @@ export class ContactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getContactById(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<ContactItem>;
-    public getContactById(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<ContactItem>>;
-    public getContactById(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<ContactItem>>;
+    public getContactById(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<GetOneContactResponseDto>;
+    public getContactById(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<GetOneContactResponseDto>>;
+    public getContactById(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<GetOneContactResponseDto>>;
     public getContactById(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getContactById.');
@@ -259,7 +261,7 @@ export class ContactsService {
             }
         }
 
-        return this.httpClient.get<ContactItem>(`${this.configuration.basePath}/api/Contacts/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<GetOneContactResponseDto>(`${this.configuration.basePath}/api/Contacts/${encodeURIComponent(String(id))}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -272,13 +274,25 @@ export class ContactsService {
     }
 
     /**
+     * @param startAt 
+     * @param endAt 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getContacts(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<Array<ContactItem>>;
-    public getContacts(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<Array<ContactItem>>>;
-    public getContacts(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<Array<ContactItem>>>;
-    public getContacts(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public getContacts(startAt?: string, endAt?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<Array<GetContactsResponseDto>>;
+    public getContacts(startAt?: string, endAt?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<Array<GetContactsResponseDto>>>;
+    public getContacts(startAt?: string, endAt?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<Array<GetContactsResponseDto>>>;
+    public getContacts(startAt?: string, endAt?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (startAt !== undefined && startAt !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>startAt, 'StartAt');
+        }
+        if (endAt !== undefined && endAt !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>endAt, 'EndAt');
+        }
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -313,9 +327,10 @@ export class ContactsService {
             }
         }
 
-        return this.httpClient.get<Array<ContactItem>>(`${this.configuration.basePath}/api/Contacts`,
+        return this.httpClient.get<Array<GetContactsResponseDto>>(`${this.configuration.basePath}/api/Contacts`,
             {
                 context: localVarHttpContext,
+                params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

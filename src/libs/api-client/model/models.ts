@@ -3,6 +3,8 @@ export * from './contactItem';
 export * from './createContactDto';
 export * from './createContactEventDto';
 export * from './createOrderDto';
+export * from './getContactsResponseDto';
+export * from './getOneContactResponseDto';
 export * from './orderItem';
 export * from './ordersStatsDto';
 export * from './updateContactDto';

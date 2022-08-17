@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-12">
+    <nb-card size="large">
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Contact">
+          <nb-card size="medium">
+            <nb-card-header>
+              Main Contact Data
+            </nb-card-header>
+            <nb-list>
+              <nb-list-item *ngFor="let item of contact | keyvalue" [hidden]="!item.value">
+                <div *ngIf="item.value">
+                  <p><strong>{{ item.key }}: </strong>{{ item.value }}</p>
+                </div>
+              </nb-list-item>
+            </nb-list>
+          </nb-card>
+
+
+        </nb-tab>
+        <nb-tab tabTitle="Events">
+          <span>Content #2</span>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
