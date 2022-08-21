@@ -3,7 +3,7 @@ import { NbMenuModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
-import { ECommerceModule } from './e-commerce/e-commerce.module';
+import { ECommerceModule } from './dashboard/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
