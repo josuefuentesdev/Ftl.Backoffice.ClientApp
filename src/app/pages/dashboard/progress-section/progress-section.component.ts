@@ -8,7 +8,7 @@ import { OrdersService } from '../../../../libs/api-client';
   styleUrls: ['./progress-section.component.scss'],
   templateUrl: './progress-section.component.html',
 })
-export class ECommerceProgressSectionComponent implements OnDestroy {
+export class DashboardProgressSectionComponent implements OnDestroy {
 
   private alive = true;
 
