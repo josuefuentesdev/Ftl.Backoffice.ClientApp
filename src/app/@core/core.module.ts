@@ -7,7 +7,6 @@ import { of as observableOf } from 'rxjs';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import {
   LayoutService,
-  PlayerService,
   SeoService,
   StateService,
 } from './utils';
@@ -75,7 +74,6 @@ export const NB_CORE_PROVIDERS = [
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },
   LayoutService,
-  PlayerService,
   SeoService,
   StateService,
 ];
