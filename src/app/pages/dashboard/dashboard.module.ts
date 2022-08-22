@@ -13,9 +13,9 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { ECommerceComponent } from './e-commerce.component';
+import { DashboardComponent } from './dashboard.component';
 import { FunnelChartComponent } from './funnel-chart/funnel-chart.component';
-import { ECommerceProgressSectionComponent } from './progress-section/progress-section.component';
+import { DashboardProgressSectionComponent } from './progress-section/progress-section.component';
 
 @NgModule({
   imports: [
@@ -32,12 +32,12 @@ import { ECommerceProgressSectionComponent } from './progress-section/progress-s
     NgxChartsModule,
   ],
   declarations: [
-    ECommerceComponent,
+    DashboardComponent,
     FunnelChartComponent,
-    ECommerceProgressSectionComponent
+    DashboardProgressSectionComponent
   ],
   providers: [
     ,
   ],
 })
-export class ECommerceModule { }
+export class DashboardModule { }
