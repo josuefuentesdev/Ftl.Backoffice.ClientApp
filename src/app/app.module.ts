@@ -4,6 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { CoreModule } from "./@core/core.module";
@@ -15,8 +16,13 @@ import { ApiModule, BASE_PATH } from "../libs/api-client";
 import { environment } from "../environments/environment";
 
 import {
+  NbChatModule,
+  NbDatepickerModule,
+  NbDialogModule,
   NbMenuModule,
   NbSidebarModule,
+  NbToastrModule,
+  NbWindowModule,
 } from "@nebular/theme";
 import {
   MsalModule,
@@ -29,16 +35,25 @@ import {
 import {
   PublicClientApplication,
   InteractionType,
+  BrowserCacheLocation,
 } from "@azure/msal-browser";
 import { msalConfig, protectedResources } from "../auth-config";
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbWindowModule.forRoot(),
+    NbToastrModule.forRoot(),
+    NbChatModule.forRoot({
+      messageGoogleMapKey: "AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY",
+    }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ApiModule,
