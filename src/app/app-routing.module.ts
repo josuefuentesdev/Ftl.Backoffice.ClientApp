@@ -9,6 +9,7 @@ import {
   NbResetPasswordComponent,
 } from '@nebular/auth';
 import { MsalGuard } from '@azure/msal-angular';
+import { CustomLogoutComponent } from './pages/custom-logout/custom-logout.component';
 
 export const routes: Routes = [
   {
@@ -35,7 +36,7 @@ export const routes: Routes = [
       },
       {
         path: 'logout',
-        component: NbLogoutComponent,
+        component: CustomLogoutComponent,
       },
       {
         path: 'request-password',

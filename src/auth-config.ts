@@ -25,6 +25,7 @@ export const msalConfig: Configuration = {
          authority: b2cPolicies.authorities.signUpSignIn.authority,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/',
+         postLogoutRedirectUri: '/',
      },
      cache: {
          cacheLocation: BrowserCacheLocation.LocalStorage,

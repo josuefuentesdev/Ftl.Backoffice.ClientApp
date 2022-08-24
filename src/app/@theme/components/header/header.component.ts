@@ -5,6 +5,7 @@ import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { MsalService } from '@azure/msal-angular';
 
 @Component({
   selector: 'ngx-header',
@@ -38,12 +39,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Profile'}, { title: 'Log out' } ];
+  userMenu = [{ title: 'Log out', link: '/auth/logout' } ];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
-              // private userService: UserData,
               private layoutService: LayoutService,
               private breakpointService: NbMediaBreakpointsService) {
   }
@@ -91,4 +91,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.menuService.navigateHome();
     return false;
   }
+
 }

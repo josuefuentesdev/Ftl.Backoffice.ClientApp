@@ -7,6 +7,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
+import { CustomLogoutComponent } from './custom-logout/custom-logout.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
   ],
   declarations: [
     PagesComponent,
+    CustomLogoutComponent,
   ],
 })
 export class PagesModule {
