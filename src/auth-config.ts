@@ -44,8 +44,8 @@ export const msalConfig: Configuration = {
 
 export const protectedResources = {
   todoListApi: {
-    endpoint: "http://localhost:5000/api/todolist",
-    scopes: ["https://fictitelb2c.onmicrosoft.com/api/tasks.read"],
+    endpoint: "https://api-crm-prod.azure-api.net/backoffice",
+    scopes: ["https://fictitelb2c.onmicrosoft.com/68517ba2-2fbe-41ee-a48c-20ba204da62a/tasks.read"],
   },
 }
 export const loginRequest = {
