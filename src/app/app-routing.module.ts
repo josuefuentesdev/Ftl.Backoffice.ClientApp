@@ -49,7 +49,7 @@ export const routes: Routes = [
     ],
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages/dashboard' },
+  { path: '**', redirectTo: 'pages' },
 ];
 
 const config: ExtraOptions = {
