@@ -10,5 +10,5 @@
 
 export const environment = {
   production: false,
-  API_BASE_PATH: 'http://localhost:5000'
+  API_BASE_PATH: 'https://api-crm-prod.azure-api.net/backoffice'
 };
