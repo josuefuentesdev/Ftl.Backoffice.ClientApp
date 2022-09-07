@@ -12,7 +12,7 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
-      path: 'dashboard',
+      path: '',
       component: DashboardComponent,
     },
     {
@@ -30,7 +30,7 @@ const routes: Routes = [{
     },
     {
       path: '**',
-      component: DashboardComponent,
+      component: NotFoundComponent,
     },
   ],
 }];
