@@ -32,7 +32,7 @@ export class DashboardProgressSectionComponent implements OnDestroy {
         this.progressInfoData.push({
           title: 'Total Revenue',
           value: stats.revenue,
-          activeProgress: (stats.revenue / 5 * 1000) * 100,
+          activeProgress: (stats.revenue / (5 * 1000)) * 100,
           description: `This week, from the target of 5k`,
         });
         let lastOrderDate = Date.parse(stats.lastOrder)
